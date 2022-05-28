@@ -14,7 +14,7 @@ It creates a layout with spiral form. It uses POST method, takes 2 parameter and
 
 ![image](https://user-images.githubusercontent.com/61617734/170842525-d77d2293-b7f4-4bff-9e15-552c5bf8635e.png)
 
-###api/getlayouts
+### api/getlayouts
 It uses GET method. It returns all layouts informations of layouts. These are described below.  
 - layout_id(Return value): Unique id of layout.
 - x_axis_size(Return value): Row size of layout.
