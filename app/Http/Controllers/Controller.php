@@ -16,48 +16,49 @@ class Controller extends BaseController
     {
         $tableRowSize = $request['x'];
         $tableColumnSize = $request['y'];
-        $x = $request['x'];
-        $y = $request['y'];
-        if (isset($x) && isset($y)) {
-            $matrisFirstDimension = 0;
-            $matrisSeconDimension = 0;
+        $endingRowIndex = $request['y'];
+        $endingColumnIndex = $request['x'];
+
+        if (isset($endingRowIndex) && isset($endingColumnIndex)) {
+            $startingRowIndex = 0;
+            $startingColumnIndex = 0;
             $numbers = 0;
             $matris = [[]];
-            while ($matrisFirstDimension < $x && $matrisSeconDimension < $y) {
+            while ($startingRowIndex < $endingRowIndex && $startingColumnIndex < $endingColumnIndex) {
                 /* Print the first row from
             the remaining rows */
-                for ($i = $matrisSeconDimension; $i < $y; ++$i) {
-                    $matris[$matrisFirstDimension][$i] = $numbers;
+                for ($i = $startingColumnIndex; $i < $endingColumnIndex; ++$i) {
+                    $matris[$startingRowIndex][$i] = $numbers;
                     $numbers++;
                 }
-                $matrisFirstDimension++;
+                $startingRowIndex++;
 
                 /* Print the last column
             from the remaining columns */
-                for ($i = $matrisFirstDimension; $i < $x; ++$i) {
-                    $matris[$i][$y - 1] = $numbers;
+                for ($i = $startingRowIndex; $i < $endingRowIndex; ++$i) {
+                    $matris[$i][$endingColumnIndex - 1] = $numbers;
                     $numbers++;
                 }
-                $y--;
+                $endingColumnIndex--;
 
                 /* Print the last row from
             the remaining rows */
-                if ($matrisFirstDimension < $x) {
-                    for ($i = $y - 1; $i >= $matrisSeconDimension; --$i) {
-                        $matris[$x - 1][$i] = $numbers;
+                if ($startingRowIndex < $endingRowIndex) {
+                    for ($i = $endingColumnIndex - 1; $i >= $startingColumnIndex; --$i) {
+                        $matris[$endingRowIndex - 1][$i] = $numbers;
                         $numbers++;
                     }
-                    $x--;
+                    $endingRowIndex--;
                 }
 
                 /* Print the first column from
             the remaining columns */
-                if ($matrisSeconDimension < $y) {
-                    for ($i = $x - 1; $i >= $matrisFirstDimension; --$i) {
-                        $matris[$i][$matrisSeconDimension] = $numbers;
+                if ($startingColumnIndex < $endingColumnIndex) {
+                    for ($i = $endingRowIndex - 1; $i >= $startingRowIndex; --$i) {
+                        $matris[$i][$startingColumnIndex] = $numbers;
                         $numbers++;
                     }
-                    $matrisSeconDimension++;
+                    $startingColumnIndex++;
                 }
             }
             Layout::create([
@@ -89,7 +90,7 @@ class Controller extends BaseController
             $xSizeForGivenId = Layout::where("layout_id", $layoutId)->first()->x_axis_size;
             $ySizeForGivenId = Layout::where("layout_id", $layoutId)->first()->y_axis_size;
             if (($xCoordinate < $xSizeForGivenId) && ($yCoordinate < $ySizeForGivenId)) {
-                $result = unserialize(Layout::where("layout_id", $layoutId)->first()->data)[$xCoordinate][$yCoordinate];
+                $result = unserialize(Layout::where("layout_id", $layoutId)->first()->data)[$yCoordinate][$xCoordinate];
                 return response()->json([
                     "value_of_given_coordinate" => $result
                 ]);
