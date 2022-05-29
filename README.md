@@ -12,7 +12,7 @@ It creates a layout with spiral form. It uses POST method, takes 2 parameter and
 - y: Column Size.
 - layout_id(Return Value): Id of layout.
 
-![image](https://user-images.githubusercontent.com/61617734/170842525-d77d2293-b7f4-4bff-9e15-552c5bf8635e.png)
+![image](https://user-images.githubusercontent.com/61617734/170871266-9040f6c1-070f-4a48-b89a-166088a2c4c6.png)
 
 ### api/getlayouts
 It uses GET method. It returns all layouts informations of layouts. These are described below.  
@@ -20,7 +20,7 @@ It uses GET method. It returns all layouts informations of layouts. These are de
 - x_axis_size(Return value): Row size of layout.
 - y_axis_size(Return value): Column size of layout.
 
-![image](https://user-images.githubusercontent.com/61617734/170842724-9006411a-6f30-48ed-ad7f-4c505647df9a.png)
+![image](https://user-images.githubusercontent.com/61617734/170871291-2790d912-a6db-484b-8e91-d8e4060a5459.png)
 
 ## api/getvalue
 It uses GET method. It returns the cell value of the layout according to the entered id, x and y coordinate values.
@@ -29,5 +29,4 @@ It uses GET method. It returns the cell value of the layout according to the ent
 - y: This represent to y coordinate of layout.
 - value_of_given_coordinate(Return value): Proper cell value.
 
-![image](https://user-images.githubusercontent.com/61617734/170843020-81391c05-bc77-43b1-acc7-a5654e68648d.png)
-
+![image](https://user-images.githubusercontent.com/61617734/170871309-74228404-e65b-49d8-a262-8a46d62e6482.png)
