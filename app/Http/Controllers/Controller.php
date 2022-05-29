@@ -9,77 +9,100 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
-class Controller extends BaseController{
+class Controller extends BaseController
+{
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    public function createLayout(Request $request){
+    public function createLayout(Request $request)
+    {
         $tableRowSize = $request['x'];
         $tableColumnSize = $request['y'];
         $x = $request['x'];
         $y = $request['y'];
-
-        $matrisFirstDimension = 0;
-        $matrisSeconDimension = 0;
-        $numbers = 0;
-        $matris = [[]];
-
-        while ($matrisFirstDimension < $x && $matrisSeconDimension < $y) {
-            /* Print the first row from
+        if (isset($x) && isset($y)) {
+            $matrisFirstDimension = 0;
+            $matrisSeconDimension = 0;
+            $numbers = 0;
+            $matris = [[]];
+            while ($matrisFirstDimension < $x && $matrisSeconDimension < $y) {
+                /* Print the first row from
             the remaining rows */
-            for ($i = $matrisSeconDimension; $i < $y; ++$i) {
-                $matris[$matrisFirstDimension][$i] = $numbers;
-                $numbers++;
-            }
-            $matrisFirstDimension++;
+                for ($i = $matrisSeconDimension; $i < $y; ++$i) {
+                    $matris[$matrisFirstDimension][$i] = $numbers;
+                    $numbers++;
+                }
+                $matrisFirstDimension++;
 
-            /* Print the last column
+                /* Print the last column
             from the remaining columns */
-            for ($i = $matrisFirstDimension; $i < $x; ++$i) {
-                $matris[$i][$y - 1] = $numbers;
-                $numbers++;
-            }
-            $y--;
+                for ($i = $matrisFirstDimension; $i < $x; ++$i) {
+                    $matris[$i][$y - 1] = $numbers;
+                    $numbers++;
+                }
+                $y--;
 
-            /* Print the last row from
+                /* Print the last row from
             the remaining rows */
-            if ($matrisFirstDimension < $x) {
-                for ($i = $y - 1; $i >= $matrisSeconDimension; --$i) {
-                    $matris[$x - 1][$i] = $numbers;
-                    $numbers++;
+                if ($matrisFirstDimension < $x) {
+                    for ($i = $y - 1; $i >= $matrisSeconDimension; --$i) {
+                        $matris[$x - 1][$i] = $numbers;
+                        $numbers++;
+                    }
+                    $x--;
                 }
-                $x--;
-            }
 
-            /* Print the first column from
+                /* Print the first column from
             the remaining columns */
-            if ($matrisSeconDimension < $y) {
-                for ($i = $x - 1; $i >= $matrisFirstDimension; --$i) {
-                    $matris[$i][$matrisSeconDimension] = $numbers;
-                    $numbers++;
+                if ($matrisSeconDimension < $y) {
+                    for ($i = $x - 1; $i >= $matrisFirstDimension; --$i) {
+                        $matris[$i][$matrisSeconDimension] = $numbers;
+                        $numbers++;
+                    }
+                    $matrisSeconDimension++;
                 }
-                $matrisSeconDimension++;
             }
+            Layout::create([
+                'x_axis_size' => $tableRowSize,
+                'y_axis_size' => $tableColumnSize,
+                'data' => serialize($matris)
+            ]);
+            return response()->json([
+                'layout_id' => Layout::orderBy('layout_id', 'desc')->first()->layout_id
+            ]);
+        } else {
+            return response()->json([
+                'error' => "x and y can't be empty!"
+            ]);
         }
-        Layout::create([
-            'x_axis_size' => $tableRowSize,
-            'y_axis_size' => $tableColumnSize,
-            'data' => serialize($matris)
-        ]);
-        return response()->json([
-            'layout_id' => Layout::orderBy('layout_id', 'desc')->first()->layout_id
-        ]);
     }
-    public function getLayouts(){
+    public function getLayouts()
+    {
         return response()->json([
             Layout::all()
         ]);
     }
-    public function getValueOfLayout(Request $request){
+    public function getValueOfLayout(Request $request)
+    {
         $layoutId = $request['id'];
         $xCoordinate = $request['x'];
         $yCoordinate = $request['y'];
-        $result = unserialize(Layout::where("layout_id", $layoutId)->first()->data)[$yCoordinate][$xCoordinate];
-        return response()->json([
-            "value_of_given_coordinate" => $result
-        ]);
+        if (isset($layoutId) && isset($xCoordinate) && isset($yCoordinate)) {
+            $xSizeForGivenId = Layout::where("layout_id", $layoutId)->first()->x_axis_size;
+            $ySizeForGivenId = Layout::where("layout_id", $layoutId)->first()->y_axis_size;
+            if (($xCoordinate < $xSizeForGivenId) && ($yCoordinate < $ySizeForGivenId)) {
+                $result = unserialize(Layout::where("layout_id", $layoutId)->first()->data)[$xCoordinate][$yCoordinate];
+                return response()->json([
+                    "value_of_given_coordinate" => $result
+                ]);
+            } else {
+                return response()->json([
+                    'error' => "x and y must be smaller than layout's x and y!"
+                ]);
+            }
+        } else {
+
+            return response()->json([
+                'error' => "x, y and id can't be empty!"
+            ]);
+        }
     }
 }

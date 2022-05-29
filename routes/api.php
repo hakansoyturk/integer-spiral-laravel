@@ -19,8 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('createlayout', [Controller::class , 'createLayout']);
-Route::get('getlayouts', [Controller::class , 'getLayouts']);
-Route::get('getvalue', [Controller::class , 'getValueOfLayout']);
-
-
+Route::post('createlayout', [Controller::class, 'createLayout']);
+Route::get('getlayouts', [Controller::class, 'getLayouts']);
+Route::get('getvalue', [Controller::class, 'getValueOfLayout']);
