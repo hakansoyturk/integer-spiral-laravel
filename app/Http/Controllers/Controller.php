@@ -8,10 +8,62 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use OpenApi\Annotations as OA;
 
+/**
+ * @OA\Info(
+ *    title="Integer Spiral API Documentation",
+ *    version="1.0.0",
+ *      description="Integer Spiral Project API's Request and Response Values",
+ *      @OA\Contact(
+ *          email="hakan.syturk@gmail.com"
+ *      )
+ * )
+ */
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    /**
+     * @OA\Post(
+     *      path="/api/createlayout",
+     *      operationId="creatingLayout",
+     *      tags={"Requests"},
+     *      summary="Creates a layout with spiral form, takes 2 parameter and returns id of layout.",
+     *      description="Creates a layout with spiral form, takes 2 parameter which are x and y. Returns id of created layout.",
+     *
+     *     @OA\Parameter(
+     *          name="x",
+     *          description="Size of x axis",
+     *          required=true,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="y",
+     *          description="Size of y axis",
+     *          required=true,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *     )
+     */
     public function createLayout(Request $request)
     {
         $tableRowSize = $request['x'];
@@ -75,12 +127,84 @@ class Controller extends BaseController
             ]);
         }
     }
+    /**
+     * @OA\Get(
+     *      path="/api/getlayouts",
+     *      operationId="gettingLayout",
+     *      tags={"Requests"},
+     *      summary="List all layouts",
+     *      description="Returns all informations of layouts.",
+     *
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
     public function getLayouts()
     {
         return response()->json([
             Layout::all()
         ]);
     }
+    /**
+     * @OA\Get(
+     *      path="/api/getvalue",
+     *      operationId="gettingValue",
+     *      tags={"Requests"},
+     *      summary="Returns coordinate according to x and y values",
+     *      description="Returns the cell value of the layout according to the entered id, x and y coordinate values.",
+     *
+     *     @OA\Parameter(
+     *          name="id",
+     *          description="Id of layout",
+     *          required=true,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="x",
+     *          description="x coordinate",
+     *          required=true,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="y",
+     *          description="y coordinate",
+     *          required=true,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
     public function getValueOfLayout(Request $request)
     {
         $layoutId = $request['id'];
