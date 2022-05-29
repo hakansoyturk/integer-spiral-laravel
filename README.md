@@ -30,3 +30,29 @@ It uses GET method. It returns the cell value of the layout according to the ent
 - value_of_given_coordinate(Return value): Proper cell value.
 
 ![image](https://user-images.githubusercontent.com/61617734/170872226-e40732b8-6d53-48d8-b0b6-cc7d5adf4218.png)
+
+## api/documantation
+It returns API document. It provides UI for request methods. You can test request methods here.
+
+![image](https://user-images.githubusercontent.com/61617734/170890417-f15fa242-c84a-48cb-bc54-3f76160b880a.png)
+
+- api/createlayout
+Example UI looking is given below for createlayout method.
+<p>
+<img src="https://user-images.githubusercontent.com/61617734/170890497-21325c2b-d499-4213-8ab2-6494ea2060e1.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/170890549-7f580755-3d87-4367-814a-8f2b143e866e.png" width="45%">
+</p>
+
+- api/getlayouts
+Example UI looking is given below for getlayouts method.
+<p>
+<img src="https://user-images.githubusercontent.com/61617734/170890672-4c12d78c-a35e-465f-bc96-f58fc22f701c.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/170890685-e35c0de4-10ca-4a1d-896e-4dd9049e4369.png" width="45%">
+</p>
+
+- api/getvalue
+Example UI looking is given below for getvalue method.
+<p>
+<img src="https://user-images.githubusercontent.com/61617734/170890733-b80e8dbb-79b6-4684-ba76-7374f0dd4b80.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/170890769-b255b1f1-3df4-4f79-aaec-272efbb7d9ec.png" width="45%">
+</p>
