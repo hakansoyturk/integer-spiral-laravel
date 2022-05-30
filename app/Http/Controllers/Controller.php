@@ -211,10 +211,10 @@ class Controller extends BaseController
         $xCoordinate = $request['x'];
         $yCoordinate = $request['y'];
         if (isset($layoutId) && isset($xCoordinate) && isset($yCoordinate)) {
-            $xSizeForGivenId = Layout::where("layout_id", $layoutId)->first()->x_axis_size;
-            $ySizeForGivenId = Layout::where("layout_id", $layoutId)->first()->y_axis_size;
+            $xSizeForGivenId = Layout::where("id", $layoutId)->first()->x_axis_size;
+            $ySizeForGivenId = Layout::where("id", $layoutId)->first()->y_axis_size;
             if (($xCoordinate < $xSizeForGivenId) && ($yCoordinate < $ySizeForGivenId)) {
-                $result = unserialize(Layout::where("layout_id", $layoutId)->first()->data)[$yCoordinate][$xCoordinate];
+                $result = unserialize(Layout::where("id", $layoutId)->first()->data)[$yCoordinate][$xCoordinate];
                 return response()->json([
                     "value_of_given_coordinate" => $result
                 ]);

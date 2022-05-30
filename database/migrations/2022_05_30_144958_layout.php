@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('layout', function (Blueprint $table) {
-            $table->increments('layout_id');
+            $table->increments('id');
             $table->integer('x_axis_size');
             $table->integer('y_axis_size');
             $table->text('data');
