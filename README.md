@@ -39,15 +39,15 @@ It returns API document. It provides UI for request methods. You can test reques
 - api/createlayout
 Example UI looking is given below for createlayout method.
 <p>
-<img src="https://user-images.githubusercontent.com/61617734/170890497-21325c2b-d499-4213-8ab2-6494ea2060e1.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/171035511-6ce5b92e-86bd-474c-aa5a-74a132132821.png" width="45%">
 <img src="https://user-images.githubusercontent.com/61617734/171035220-c69da798-acf5-4d20-a3e8-5f10b7bdc1e6.png" width="45%">
 </p>
 
 - api/getlayouts
 Example UI looking is given below for getlayouts method.
 <p>
-<img src="https://user-images.githubusercontent.com/61617734/171035047-26b38558-1f96-4765-81c8-365ad3ae9c34.png" width="45%">
-<img src="https://user-images.githubusercontent.com/61617734/170890685-e35c0de4-10ca-4a1d-896e-4dd9049e4369.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/171035624-e9db3703-e06e-4c26-aa7c-e6082557adc8.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/171035689-e894332a-1c23-47f5-8210-4766d2406ad4.png" width="45%">
 </p>
 
 - api/getvalue
