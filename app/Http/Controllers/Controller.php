@@ -210,23 +210,29 @@ class Controller extends BaseController
         $layoutId = $request['id'];
         $xCoordinate = $request['x'];
         $yCoordinate = $request['y'];
-        if (isset($layoutId) && isset($xCoordinate) && isset($yCoordinate)) {
-            $xSizeForGivenId = Layout::where("id", $layoutId)->first()->x_axis_size;
-            $ySizeForGivenId = Layout::where("id", $layoutId)->first()->y_axis_size;
-            if (($xCoordinate < $xSizeForGivenId) && ($yCoordinate < $ySizeForGivenId)) {
-                $result = unserialize(Layout::where("id", $layoutId)->first()->data)[$yCoordinate][$xCoordinate];
-                return response()->json([
-                    "value_of_given_coordinate" => $result
-                ]);
+        if (Layout::where("id", $layoutId)->first()) {
+            if (isset($layoutId) && isset($xCoordinate) && isset($yCoordinate)) {
+                $xSizeForGivenId = Layout::where("id", $layoutId)->first()->x_axis_size;
+                $ySizeForGivenId = Layout::where("id", $layoutId)->first()->y_axis_size;
+                if (($xCoordinate < $xSizeForGivenId) && ($yCoordinate < $ySizeForGivenId)) {
+                    $result = unserialize(Layout::where("id", $layoutId)->first()->data)[$yCoordinate][$xCoordinate];
+                    return response()->json([
+                        "value_of_given_coordinate" => $result
+                    ]);
+                } else {
+                    return response()->json([
+                        'error' => "x and y must be smaller than layout's x and y!"
+                    ]);
+                }
             } else {
+
                 return response()->json([
-                    'error' => "x and y must be smaller than layout's x and y!"
+                    'error' => "x, y and id can't be empty!"
                 ]);
             }
         } else {
-
             return response()->json([
-                'error' => "x, y and id can't be empty!"
+                'error' => "The layout with ID $layoutId was not found."
             ]);
         }
     }
