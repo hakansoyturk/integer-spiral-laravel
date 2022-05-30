@@ -12,7 +12,7 @@ It creates a layout with spiral form. It uses POST method, takes 2 parameter and
 - y: Column Size.
 - layout_id(Return Value): Id of layout.
 
-![image](https://user-images.githubusercontent.com/61617734/170872279-e0370d2b-23dd-4e1c-8890-04e3f0a51ef0.png)
+![image](https://user-images.githubusercontent.com/61617734/171034723-fdf7850c-4c1e-4e2d-a812-12ea1a9ea78b.png)
 
 ### api/getlayouts
 It uses GET method. It returns all layouts informations of layouts. These are described below.  
@@ -20,7 +20,7 @@ It uses GET method. It returns all layouts informations of layouts. These are de
 - x_axis_size(Return value): Row size of layout.
 - y_axis_size(Return value): Column size of layout.
 
-![image](https://user-images.githubusercontent.com/61617734/170872257-bf01cd99-b939-4c9b-b890-309019f3f20d.png)
+![image](https://user-images.githubusercontent.com/61617734/171034818-cad3e6af-9e39-47a6-a0a0-84b0876e8677.png)
 
 ## api/getvalue
 It uses GET method. It returns the cell value of the layout according to the entered id, x and y coordinate values.
@@ -29,7 +29,7 @@ It uses GET method. It returns the cell value of the layout according to the ent
 - y: This represent to y coordinate of layout.
 - value_of_given_coordinate(Return value): Proper cell value.
 
-![image](https://user-images.githubusercontent.com/61617734/170872226-e40732b8-6d53-48d8-b0b6-cc7d5adf4218.png)
+![image](https://user-images.githubusercontent.com/61617734/171034904-0773725d-498f-46b7-93eb-02e5a4e55ffd.png)
 
 ## api/documantation
 It returns API document. It provides UI for request methods. You can test request methods here.
@@ -40,13 +40,13 @@ It returns API document. It provides UI for request methods. You can test reques
 Example UI looking is given below for createlayout method.
 <p>
 <img src="https://user-images.githubusercontent.com/61617734/170890497-21325c2b-d499-4213-8ab2-6494ea2060e1.png" width="45%">
-<img src="https://user-images.githubusercontent.com/61617734/170890549-7f580755-3d87-4367-814a-8f2b143e866e.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/171035220-c69da798-acf5-4d20-a3e8-5f10b7bdc1e6.png" width="45%">
 </p>
 
 - api/getlayouts
 Example UI looking is given below for getlayouts method.
 <p>
-<img src="https://user-images.githubusercontent.com/61617734/170890672-4c12d78c-a35e-465f-bc96-f58fc22f701c.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/171035047-26b38558-1f96-4765-81c8-365ad3ae9c34.png" width="45%">
 <img src="https://user-images.githubusercontent.com/61617734/170890685-e35c0de4-10ca-4a1d-896e-4dd9049e4369.png" width="45%">
 </p>
 
