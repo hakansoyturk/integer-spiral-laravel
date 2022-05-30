@@ -66,12 +66,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => $DATABASE_URL["host"],
-            'port' => $DATABASE_URL["port"],
-            'database' => ltrim($DATABASE_URL["path"], "/"),
-            'username' => $DATABASE_URL["user"],
-            'password' => $DATABASE_URL["pass"],
+            'url' => "https://mapintegerspiral.herokuapp.com/",
+            'host' => "ec2-44-196-174-238.compute-1.amazonaws.com",
+            'port' => 5432,
+            'database' => "postgres://yzuklortmerhby:c3df50d939dc304e6239554428b975775006c4e5e60c38ee0f42f7dab92946bb@ec2-44-196-174-238.compute-1.amazonaws.com:5432/d4a8qlb1r8tscj",
+            'username' => "yzuklortmerhby",
+            'password' => "c3df50d939dc304e6239554428b975775006c4e5e60c38ee0f42f7dab92946bb",
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
