@@ -119,7 +119,7 @@ class Controller extends BaseController
                 'data' => serialize($matris)
             ]);
             return response()->json([
-                'layout_id' => Layout::orderBy('id', 'desc')->first()->layout_id
+                'layout_id' => Layout::orderBy('id', 'desc')->first()->id
             ]);
         } else {
             return response()->json([
