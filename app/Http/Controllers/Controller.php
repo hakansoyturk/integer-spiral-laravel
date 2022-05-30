@@ -51,6 +51,10 @@ class Controller extends BaseController
      *      ),
      *
      *      @OA\Response(
+     *          response=201,
+     *          description="Created"
+     *       ),
+     *      @OA\Response(
      *          response=200,
      *          description="Successful operation"
      *       ),
@@ -118,9 +122,8 @@ class Controller extends BaseController
                 'y_axis_size' => $tableColumnSize,
                 'data' => serialize($matris)
             ]);
-            return response()->json([
-                'layout_id' => Layout::orderBy('id', 'desc')->first()->id
-            ]);
+
+            return response()->json(['layout_id' => Layout::orderBy('id', 'desc')->first()->id], 201);
         } else {
             return response()->json([
                 'error' => "x and y can't be empty!"
