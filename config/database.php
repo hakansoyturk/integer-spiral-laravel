@@ -66,7 +66,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => "https://mapintegerspiral.herokuapp.com/",
+            'url' => "mapintegerspiral.herokuapp.com",
             'host' => "ec2-44-196-174-238.compute-1.amazonaws.com",
             'port' => 5432,
             'database' => "postgres://yzuklortmerhby:c3df50d939dc304e6239554428b975775006c4e5e60c38ee0f42f7dab92946bb@ec2-44-196-174-238.compute-1.amazonaws.com:5432/d4a8qlb1r8tscj",
