@@ -54,7 +54,7 @@ Example UI looking is given below for getlayouts method.
 Example UI looking is given below for getvalue method.
 <p>
 <img src="https://user-images.githubusercontent.com/61617734/170890733-b80e8dbb-79b6-4684-ba76-7374f0dd4b80.png" width="45%">
-<img src="https://user-images.githubusercontent.com/61617734/170890769-b255b1f1-3df4-4f79-aaec-272efbb7d9ec.png" width="45%">
+<img src="https://user-images.githubusercontent.com/61617734/171035867-fa8a41a8-0e0e-48ec-8977-84c9ddccecd5.png" width="45%">
 </p>
 
 ## FOR LIVE DEMO
@@ -63,16 +63,16 @@ You can check https://mapintegerspiral.herokuapp.com
 - https://mapintegerspiral.herokuapp.com/api/createlayout
 You can access it with POST method. It Takes 2 parameter which are x and y. The Response will be id of layout. Example request is given below.
 
-![image](https://user-images.githubusercontent.com/61617734/171026135-982abcb9-75fd-4e7e-9fca-823ad7f478ec.png)
+![image](https://user-images.githubusercontent.com/61617734/171035963-23073c9d-e835-41be-b6cb-e4d4bc2057ad.png)
 
 
 - https://mapintegerspiral.herokuapp.com/api/getlayouts
 You can access it with GET method. The Response will be all layouts in the database. Example request is given below.
 
-![image](https://user-images.githubusercontent.com/61617734/171026614-fc40bdcc-3ba2-4e37-ae17-258822f2d9c9.png)
+![image](https://user-images.githubusercontent.com/61617734/171036059-a113af7a-1567-47a7-be42-43fbc82d7e38.png)
 
 
 - https://mapintegerspiral.herokuapp.com/api/getvalue
 You can access it with GET method. It takes 3 parameter which are id,x and y. The Response will be cell value of layout. Example request is given below.
 
-![image](https://user-images.githubusercontent.com/61617734/171027171-418f9e9f-23eb-4a3e-af69-c20ab3b34521.png)
+![image](https://user-images.githubusercontent.com/61617734/171036156-ab6e8a4c-783c-4ce1-9993-31a8c11b05a7.png)
