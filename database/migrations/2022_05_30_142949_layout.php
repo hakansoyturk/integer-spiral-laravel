@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('layout_id');
             $table->integer('x_axis_size');
             $table->integer('y_axis_size');
-            $table->integer('data');
+            $table->text('data');
         });
     }
 
