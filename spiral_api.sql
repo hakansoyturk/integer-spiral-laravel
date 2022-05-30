@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 May 2022, 22:36:55
+-- Üretim Zamanı: 30 May 2022, 17:26:36
 -- Sunucu sürümü: 10.4.18-MariaDB
 -- PHP Sürümü: 8.0.5
 
@@ -44,18 +44,11 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `layout` (
-  `layout_id` int(255) UNSIGNED NOT NULL,
+  `id` int(255) UNSIGNED NOT NULL,
   `x_axis_size` int(255) UNSIGNED NOT NULL,
   `y_axis_size` int(255) UNSIGNED NOT NULL,
   `data` text COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `layout`
---
-
-INSERT INTO `layout` (`layout_id`, `x_axis_size`, `y_axis_size`, `data`) VALUES
-(13, 5, 6, 'a:5:{i:0;a:6:{i:0;i:0;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:4;i:5;i:5;}i:1;a:6:{i:5;i:6;i:0;i:17;i:1;i:18;i:2;i:19;i:3;i:20;i:4;i:21;}i:2;a:6:{i:5;i:7;i:0;i:16;i:4;i:22;i:1;i:27;i:2;i:28;i:3;i:29;}i:3;a:6:{i:5;i:8;i:0;i:15;i:4;i:23;i:3;i:24;i:2;i:25;i:1;i:26;}i:4;a:6:{i:5;i:9;i:4;i:10;i:3;i:11;i:2;i:12;i:1;i:13;i:0;i:14;}}');
 
 -- --------------------------------------------------------
 
@@ -240,7 +233,7 @@ ALTER TABLE `failed_jobs`
 -- Tablo için indeksler `layout`
 --
 ALTER TABLE `layout`
-  ADD PRIMARY KEY (`layout_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Tablo için indeksler `migrations`
@@ -317,7 +310,7 @@ ALTER TABLE `failed_jobs`
 -- Tablo için AUTO_INCREMENT değeri `layout`
 --
 ALTER TABLE `layout`
-  MODIFY `layout_id` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `migrations`
