@@ -281,7 +281,7 @@ return [
          * Constants which can be used in annotations
          */
         'constants' => [
-            'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'https://mapintegerspiral.herokuapp.com'),
+            'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'ec2-34-231-221-151.compute-1.amazonaws.com'),
         ],
     ],
 ];
